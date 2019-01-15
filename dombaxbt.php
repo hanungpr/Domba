@@ -52,24 +52,27 @@ function hpr($reff){
     $result = curl_exec($ch);
     return $result;
 }
-$reff = "RCb0657";
-visit();
-$ekse = hpr($reff);
-if (stripos($ekse , "isNew")){
-    echo "".$ekse;
-    $page = $_SERVER['PHP_SELF'];
-    $sec = "3";
-    header("Refresh: $sec; url=$page");
-} else if (stripos($ekse , "Access denied")){
-    echo "<h2>AKSES DENIED</h2>";
-} else if (stripos($ekse , "Too Many Requests")){
-    echo "<h2>Too Many Requests</h2>";
-    $page = $_SERVER['PHP_SELF'];
-    $sec = "15";
-    header("Refresh: $sec; url=$page");
-} else {
-    echo "<h2>GAGAL</h2>";
-    $page = $_SERVER['PHP_SELF'];
-    $sec = "3";
-    header("Refresh: $sec; url=$page");
+echo "Reff : ";
+$reff = read();
+echo "Berapa Banyak? : ";
+$banyak = read();
+echo "\n============== START Tuyul ==============\n";
+$x = 1;
+while($x <= $banyak) {
+    visit();
+    $ekse = hpr($reff);
+    if (stripos($ekse , "isNew")){
+        echo "SUKSES SUNTIK - ".$reff." ( Sleep 3s ) ./HanungGanteng";
+        sleep(3);
+    } else if (stripos($ekse , "Access denied")){
+        echo "ACCESS DENIED - Change IP ./HanungGanteng";
+    } else if (stripos($ekse , "Too Many Requests")){
+        echo "To Many Requests - ( Sleep 15s ) ./HanungGanteng";
+        sleep(15);
+    } else {
+        echo "GAGAL SUNTIK - ( Sleep 3s ) ./HanungGanteng";
+        sleep(3);
+    }echo PHP_EOL;
+$x++;
 }
+echo "================= Done ==================\n";
