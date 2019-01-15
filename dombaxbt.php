@@ -70,16 +70,16 @@ while($x <= $banyak) {
     visit();
     $ekse = hpr($reff);
     if (stripos($ekse , "isNew")){
-        echo "SUKSES SUNTIK - ".$reff." ( Sleep 3s ) ./HanungGanteng";
-        sleep(3);
+        echo "SUKSES SUNTIK - ".$reff." (Sleep 3s) ./HanungGanteng";
+        sleep(5);
     } else if (stripos($ekse , "Access denied")){
         echo "ACCESS DENIED - Change IP ./HanungGanteng";
     } else if (stripos($ekse , "Too Many Requests")){
-        echo "To Many Requests - ( Sleep 15s ) ./HanungGanteng";
-        sleep(15);
+        echo "To Many Requests - (Sleep 20s) ./HanungGanteng";
+        sleep(20);
     } else {
-        echo "GAGAL SUNTIK - ( Sleep 3s ) ./HanungGanteng";
-        sleep(3);
+        echo "GAGAL SUNTIK - (Sleep 3s) ./HanungGanteng";
+        sleep(5);
     }echo PHP_EOL;
 $x++;
 }
