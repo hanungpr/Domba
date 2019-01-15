@@ -1,5 +1,13 @@
 <?php
-
+function read ($length='255') 
+{ 
+   if (!isset ($GLOBALS['StdinPointer'])) 
+   { 
+      $GLOBALS['StdinPointer'] = fopen ("php://stdin","r"); 
+   } 
+   $line = fgets ($GLOBALS['StdinPointer'],$length); 
+   return trim ($line); 
+} 
 function rand2($length = 10) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
     $charactersLength = strlen($characters);
